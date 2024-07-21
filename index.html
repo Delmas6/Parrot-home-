@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parrot Home</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel-image {
+            min-width: 100%;
+            height: auto;
+        }
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .parrot-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .parrot-item {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 30%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .parrot-item img {
+            width: 100%;
+            height: auto;
+        }
+        .parrot-info {
+            padding: 10px;
+        }
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Parrot Home</h1>
+    </header>
+
+    <div class="carousel">
+        <div class="carousel-images">
+            <img src="https://via.placeholder.com/1200x400?text=Macaw+Parrot" alt="Macaw Parrot" class="carousel-image">
+            <img src="https://via.placeholder.com/1200x400?text=African+Grey" alt="African Grey Parrot" class="carousel-image">
+            <img src="https://via.placeholder.com/1200x400?text=Amazon+Parrot" alt="Amazon Parrot" class="carousel-image">
+        </div>
+        <div class="carousel-controls">
+            <button class="carousel-button" onclick="prevSlide()">❮</button>
+            <button class="carousel-button" onclick="nextSlide()">❯</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <section class="parrot-list">
+            <div class="parrot-item">
+                <img src="https://via.placeholder.com/400x300?text=Macaw+1" alt="Macaw 1">
+                <div class="parrot-info">
+                    <h3>Macaw Parrot 1</h3>
+                    <p>Description of Macaw Parrot 1.</p>
+                </div>
+            </div>
+            <div class="parrot-item">
+                <img src="https://via.placeholder.com/400x300?text=African+Grey+1" alt="African Grey 1">
+                <div class="parrot-info">
+                    <h3>African Grey Parrot 1</h3>
+                    <p>Description of African Grey Parrot 1.</p>
+                </div>
+            </div>
+            <div class="parrot-item">
+                <img src="https://via.placeholder.com/400x300?text=Amazon+Parrot+1" alt="Amazon Parrot 1">
+                <div class="parrot-info">
+                    <h3>Amazon Parrot 1</h3>
+                    <p>Description of Amazon Parrot 1.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Contact us via WhatsApp at +1 (646) 481-1503 or email us at <a href="mailto:talkingparrotsindustry@com" style="color: white;">talkingparrotsindustry@com</a></p>
+    </footer>
+
+    <script>
+        // JavaScript for Carousel
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.carousel-images');
+            const totalSlides = slides.children.length;
+            if (index >= totalSlides) currentSlide = 0;
+            if (index < 0) currentSlide = totalSlides - 1;
+            slides.style.transform = `translateX(${-currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide--;
+            showSlide(currentSlide);
+        }
+    </script>
+</body>
+</html>
